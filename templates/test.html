@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{ url_for('static', filename='test_style.css') }}">
+    <title>Викторина</title>
+</head>
+
+<body>
+    <div class="form">
+        <form action="/test" method="POST">
+            <h1>{{ question }}</h1>
+            <div class="answers">
+                {% for answer in answers %}
+                <div>
+                    <div class="answer">
+                        <input type="radio" id="{{ answer }}" name="answer_text">
+                        <label for="{{ answer }}">{{ answer }}</label>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            <div class="submit-button">
+                <input type="submit" value="Ответить на вопрос">
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style_quiz.css') }}">
+    <title>Викторина</title>
+</head>
+<body>
+    <div class="main-content">
+        <h1 class="title">Викторина подошла к концу!</h1>
+        <h3>Вы набрали {{ correct }} из {{ total }} баллов, что составляет
+            {% if correct / total > 80 %}
+            <span class="excellent">{{ "%.1f"|format(correct / total) }}</span>
+            {% elif correct / total > 60 %}
+            <span class="good">{{ "%.1f"|format(correct / total) }}</span>
+            {% elif correct / total == 0 %}
+            <span class="poor">0%</span>
+            {% else %}
+            <span class="poor">{{ "%.1f"|format(correct / total) }}</span>
+            {% endif %}.
+        </h3>
+    </div>
+</body>
+</html>

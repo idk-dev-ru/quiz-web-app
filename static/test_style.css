@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap');
+* {
+    font-family: "Jost", sans-serif; font-optical-sizing: auto;
+    padding: 0; margin: 0;
+}
+.answers {
+    margin-top: 1rem; display: grid;
+    grid-template-columns: repeat(2, 1fr); font-size: larger;
+}
+.form {
+    box-shadow: 8px 10px 22px -3px rgba(0,0,0,0.74);
+    -webkit-box-shadow: 8px 10px 22px -3px rgba(0,0,0,0.74);
+    -moz-box-shadow: 8px 10px 22px -3px rgba(0,0,0,0.74);
+    border-radius: 0.5rem; padding: 4rem 2rem;
+    background-color: #F2E4DC; display: flex;
+}
+.submit-button {
+    margin-top: 3rem; display: flex;
+    justify-content: center;
+}
+.submit-button input {
+    padding: 0.2rem 2rem; font-size: large;
+    background-color: #F29F05; border-radius: 0.5rem;
+    transition: background-color .5s ease-in-out;
+}
+.submit-button input:hover {
+    background-color: #F27649; cursor: pointer;
+}
+.submit-button input:active {
+    background-color: #d86035;
+}
+body {
+    background-color: #F2785C; display: flex;
+    align-items: center; justify-content: center; height: 100vh;
+}
+
