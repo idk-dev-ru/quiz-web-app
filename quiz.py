@@ -48,12 +48,15 @@ def test():
 def result():
     return render_template('result.html', correct=session['correct'], total=session['total'])
 
+def auth():
+    return render_template('auth.html')
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'VeRyStRoNg'
 app.add_url_rule('/', 'index', index, methods=['POST', 'GET'])
 app.add_url_rule('/test', 'test', test, methods=['POST', 'GET'])
 app.add_url_rule('/result', 'result', result)
+app.add_url_rule('/auth',  'auth', auth)
 
 app.run()
 
