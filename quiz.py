@@ -1,7 +1,6 @@
 from flask import Flask, session, url_for, redirect, request, render_template
-from db_scripts import get_question_after, get_quizes, check_answer
+from db_scripts import get_question_after, get_quizes, check_answer, get_questions
 from random import shuffle
-import os
 
 def index():
     if request.method == 'GET':
@@ -48,6 +47,12 @@ def test():
 def result():
     return render_template('result.html', correct=session['correct'], total=session['total'])
 
+def questions(page=1):
+    page -= 1
+    limit = 3
+    offset = limit * page
+    return render_template('questions.html', questions=get_questions(limit, offset))
+
 def auth():
     return render_template('auth.html')
 
@@ -56,7 +61,9 @@ app.config['SECRET_KEY'] = 'VeRyStRoNg'
 app.add_url_rule('/', 'index', index, methods=['POST', 'GET'])
 app.add_url_rule('/test', 'test', test, methods=['POST', 'GET'])
 app.add_url_rule('/result', 'result', result)
-app.add_url_rule('/auth',  'auth', auth)
+app.add_url_rule('/questions/<int:page>', 'questions', questions)
+app.add_url_rule('/questions', 'questions', questions)
+app.add_url_rule('/auth', 'auth', auth)
 
 app.run()
 

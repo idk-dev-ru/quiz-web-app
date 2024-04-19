@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 2px solid black;
+            padding: .5rem;
+        }
+        td:first-child {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Вопрос</th>
+                <th>Правильный ответ</th>
+                <th>Неправильный ответ</th>
+                <th>Неправильный ответ</th>
+                <th>Неправильный ответ</th>
+                <th>Викторины</th>
+                <th>Действие</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for question in questions %}
+            <tr>
+                <td>{{ question[0] }}</td>
+                <td>{{ question[1] }}</td>
+                <td>{{ question[2] }}</td>
+                <td>{{ question[3] }}</td>
+                <td>{{ question[4] }}</td>
+                <td>{{ question[5] }}</td>
+                <td>1, 2, 3</td>
+                <td>&times;</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

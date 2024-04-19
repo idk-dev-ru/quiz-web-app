@@ -124,6 +124,14 @@ def check_answer(question_id, answer):
         return False
     else:
         return result[0] == answer 
+    
+def get_questions(limit, offset):
+    query = '''SELECT * FROM question ORDER BY id LIMIT ? OFFSET ?'''
+    open()
+    cursor.execute(query, [limit, offset])
+    result = cursor.fetchall()
+    close()
+    return result
 
 def show(table):
     query = 'SELECT * FROM ' + table
